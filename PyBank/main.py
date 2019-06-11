@@ -10,6 +10,7 @@ csvpath = os.path.join("03-Python_Homework_PyBank_Resources_budget_data.csv")
 # create lists to store data
 month = []
 amount = []
+amount_2 = []
 amount_change = []
 
 #open the csv file
@@ -21,7 +22,9 @@ with open(csvpath, newline = "") as csvfile:
         month.append(row[0])
         amount.append(int(row[1]))
     # add the monthly amount change
-        change = 
+        amount_2.append(int(row[1]))
+    # get amount iteration's value
+    amount_2.pop(0)
     #Generate Report
     print("Financial Analysis")
     print("-----------------------------------")
@@ -30,3 +33,5 @@ with open(csvpath, newline = "") as csvfile:
     # determine net amount within the period
     print("Total Amount: "+ str(sum(amount)))
     # determine average change
+    print(amount_change)
+
