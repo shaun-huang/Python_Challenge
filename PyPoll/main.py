@@ -65,3 +65,18 @@ with open(csvpath, newline = "") as csvfile:
     print(candidates[3]+": "+ str(percent4) +"% ("+str(len(candidate4))+")")
     print('-------------------------------------')
     print("Winner :"+winner(vote))
+
+#Export a Text File
+file = "PyPoll_Report.txt"
+with open(file,'w') as f:
+    print('Election Result',file=f)
+    print('-------------------------------------',file=f)
+    print('Total Votes: '+ str(len(voter)),file=f)
+    print('-------------------------------------',file=f)
+    print(candidates[0]+": "+ str(percent1) +"% ("+str(len(candidate1))+")",file=f)
+    print(candidates[1]+": "+ str(percent2) +"% ("+str(len(candidate2))+")",file=f)
+    print(candidates[2]+": "+ str(percent3) +"% ("+str(len(candidate3))+")",file=f)
+    print(candidates[3]+": "+ str(percent4) +"% ("+str(len(candidate4))+")",file=f)
+    print('-------------------------------------',file=f)
+    print("Winner :"+winner(vote),file=f)
+    f.close()
