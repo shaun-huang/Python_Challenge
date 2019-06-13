@@ -36,6 +36,9 @@ with open(csvpath, newline = "") as csvfile:
             if x == max(list):
                 maxindex = list.index(x)
         return maxindex
+########Question to Consider: Why do you need to add 1 to the index?############
+########Because the change is counted toward the next month.
+########For example, on amount_change[0] is actually corresponding to month[1], therefore you need to add 1 to the index.
     max_index=max_increase(amount_change) +1
     def max_decrease(list):
         for x in list:
@@ -57,3 +60,21 @@ with open(csvpath, newline = "") as csvfile:
     print('Greatest Increase in Profits: '+ month[int(max_index)]+" ("+str(max(amount_change))+")")
     # determine greatest loss in profit
     print('Greatest Decrease in Profits: '+ month[int(min_index)]+" ("+str(min(amount_change))+")")
+
+#Export a Text File
+file = "PyBank_Report.txt"
+with open(file,'w') as f:
+    print("Financial Analysis",file=f)
+    print("-----------------------------------",file=f)
+    # determine total months
+    print("Total Month: " + str(len(month)),file=f)
+    # determine net amount within the period
+    print("Total Amount: "+ str(sum(amount)),file=f)
+    # determine average change
+    print("Average Change: $"+ str(average_change),file=f)
+    # determind greatest increase in profit
+    print('Greatest Increase in Profits: '+ month[int(max_index)]+" ("+str(max(amount_change))+")",file=f)
+    # determine greatest loss in profit
+    print('Greatest Decrease in Profits: '+ month[int(min_index)]+" ("+str(min(amount_change))+")",file=f)
+
+    f.close()
